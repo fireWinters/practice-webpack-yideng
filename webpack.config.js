@@ -12,9 +12,9 @@ module.exports = {
   //   模块文件
   // 在增加图片资源后webpack打包失败，需要增加配置，解决该问题
   module: {
-    // 增加对图片文件的处理规则
     rules: [
       {
+        // 增加对图片文件的处理规则，安装file-loader
         test: /\.(png|jpg|jpeg|gif)$/,
         use: [
           {
@@ -25,6 +25,15 @@ module.exports = {
           },
         ],
       },
+      {
+        //   对字体文件的支持
+          test:/\.(tif|tiff)$/,
+          use:[
+            {
+                loader:"file-loader",
+            }
+          ],
+      }
     ],
   },
 };
