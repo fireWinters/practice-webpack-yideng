@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^9.5.1",
+    "browserslist": "4.6.0",
     "css-loader": "3.3.2",
     "file-loader": "^6.2.0",
     "less": "^3.8.1",
@@ -19,5 +20,12 @@
     "style-loader": "^1.0.1",
     "webpack": "4.28.4",
     "webpack-cli": "3.3.12"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8",
+    "Android >= 4.4",
+    "iOS >= 10"
+  ]
 }
