@@ -27,13 +27,28 @@ module.exports = {
       },
       {
         //   对字体文件的支持
-          test:/\.(tif|tiff)$/,
-          use:[
-            {
-                loader:"file-loader",
-            }
-          ],
-      }
+        test: /\.(tif|tiff)$/,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
+        //   对css文件的支持,less文件的支持
+        test: /\.(css|less)$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "less-loader",
+          },
+        ],
+      },
     ],
   },
 };
