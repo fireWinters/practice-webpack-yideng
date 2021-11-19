@@ -47,6 +47,14 @@ module.exports = {
           {
             loader: "less-loader",
           },
+          {
+            //   增加对不同浏览器样式的兼容autoprefixer
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: [require("autoprefixer")],
+            },
+          },
         ],
       },
     ],

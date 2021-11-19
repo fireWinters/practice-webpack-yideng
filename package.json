@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^9.5.1",
     "css-loader": "3.3.2",
     "file-loader": "^6.2.0",
     "less": "^3.8.1",
     "less-loader": "^5.0.0",
+    "postcss-loader": "^3.0.0",
     "style-loader": "^1.0.1",
     "webpack": "4.28.4",
     "webpack-cli": "3.3.12"
