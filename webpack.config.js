@@ -1,7 +1,8 @@
-const path =require('path');
-const webpack = require("webpack");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const path = require("path");
+
 module.exports = {
   mode: "production",
   // 当mode是development的时候，会在页面环境中看到源码
