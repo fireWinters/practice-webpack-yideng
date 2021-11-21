@@ -2,26 +2,30 @@ const path =require('path');
 const webpack = require("webpack");
 module.exports = {
   mode: "production",
+  // devtool:"sourceMap",
   //   入口文件
-  entry: "./index.js",
+  entry: {
+    index:"./index.js",
+    demo:"./src/demo.js"
+},
   //   出口文件
   output: {
     //   __dirname指的是项目的根目录
     path: path.resolve(__dirname, "dist"),
-    filename: "practice-webpack-yideng.bundle.js",
-    publicPath: "https://cdn.example.com/assets/",
+    filename: "[name].[hash:5].js",
+    // publicPath: "https://cdn.example.com/assets/",
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 9000,
     hot: true,
     // 代理后端api 
-    proxy: {
-      "/api": {
-        target: "http://localhost:9000",
-        pathRewrite: { "^/api": "" },
-      },
-    },
+    // proxy: {
+    //   "/api": {
+    //     target: "http://localhost:9000",
+    //     pathRewrite: { "^/api": "" },
+    //   },
+    // },
   },
   //   模块文件
   // 在增加图片资源后webpack打包失败，需要增加配置，解决该问题
