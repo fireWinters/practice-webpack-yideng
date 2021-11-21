@@ -7,4 +7,10 @@ console.log("111img");
 console.log("222img");
 console.log("23332img");   
     // "serve": "webpack serve",
-list();
+// list();
+if (module.hot) {
+    module.hot.accept('./list',()=>{
+        console.log('热更新模块')
+        list();
+    })
+}

@@ -1,3 +1,3 @@
 export const list=()=>{
-    console.log('这是list文件')
+    console.log('这是list文xxxxqqq件')
 }
