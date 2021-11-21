@@ -1,7 +1,9 @@
 const path =require('path');
 const webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: "production",
+  // 当mode是development的时候，会在页面环境中看到源码
   // devtool:"sourceMap",
   //   入口文件
   entry: {
@@ -75,6 +77,8 @@ module.exports = {
     ],
   },
   plugins: [
+    //自动生成index.html文件在打包之后
+    new HtmlWebpackPlugin(),
     //增加模块热更新功能
     new webpack.HotModuleReplacementPlugin(),
   ],
