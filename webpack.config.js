@@ -1,15 +1,16 @@
 const path =require('path');
 const webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "production",
   // 当mode是development的时候，会在页面环境中看到源码
   // devtool:"sourceMap",
   //   入口文件
   entry: {
-    index:"./index.js",
-    demo:"./src/demo.js"
-},
+    index: "./index.js",
+    demo: "./src/demo.js",
+  },
   //   出口文件
   output: {
     //   __dirname指的是项目的根目录
@@ -21,7 +22,7 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     port: 9000,
     hot: true,
-    // 代理后端api 
+    // 代理后端api
     // proxy: {
     //   "/api": {
     //     target: "http://localhost:9000",
@@ -79,6 +80,18 @@ module.exports = {
   plugins: [
     //自动生成index.html文件在打包之后
     new HtmlWebpackPlugin(),
+    /**
+     * All files inside webpack's output.path directory will be removed once, but the
+     * directory itself will not be. If using webpack 4+'s default configuration,
+     * everything under <PROJECT_DIR>/dist/ will be removed.
+     * Use cleanOnceBeforeBuildPatterns to override this behavior.
+     *
+     * During rebuilds, all webpack assets that are not used anymore
+     * will be removed automatically.
+     *
+     * See `Options and Defaults` for information
+     */
+    new CleanWebpackPlugin(),
     //增加模块热更新功能
     new webpack.HotModuleReplacementPlugin(),
   ],
