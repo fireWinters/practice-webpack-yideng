@@ -1,4 +1,5 @@
 const path =require('path');
+const webpack = require("webpack");
 module.exports = {
   mode: "production",
   //   入口文件
@@ -8,6 +9,19 @@ module.exports = {
     //   __dirname指的是项目的根目录
     path: path.resolve(__dirname, "dist"),
     filename: "practice-webpack-yideng.bundle.js",
+    publicPath: "https://cdn.example.com/assets/",
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    port: 9000,
+    hot: true,
+    // 代理后端api 
+    proxy: {
+      "/api": {
+        target: "http://localhost:9000",
+        pathRewrite: { "^/api": "" },
+      },
+    },
   },
   //   模块文件
   // 在增加图片资源后webpack打包失败，需要增加配置，解决该问题
@@ -56,4 +70,8 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    //增加模块热更新功能
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
