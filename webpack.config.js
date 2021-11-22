@@ -36,6 +36,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: "/.js$/",
+        loader: "babel-loader",
+        options: {
+          // 转换ES6+语法
+          presets: ["@babel/preset-env"],
+        },
+        exclude:/node-modules/,
+      },
+      {
         // 增加对图片文件的处理规则，安装file-loader
         test: /\.(png|jpg|jpeg|gif)$/,
         use: [
