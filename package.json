@@ -11,7 +11,8 @@
     "serve:start":"acripty",
     "build": "webpack --watch",
     "dev:server": "webpack-dev-server",
-    "foo:bar": "scripty",
+    "foo": "echo 这是测试",
+    "prefoo":"echo 这是之前的",
     "test:unit": "scripty",
     "test:integration": "scripty",
     "test": "scripty"
